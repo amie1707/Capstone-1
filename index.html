@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>URL detection</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style1.css') }}">
+  <style>
+      /* Hide the video controls */
+      video::-webkit-media-controls {
+        display: none !important;
+      }
+      
+      /* Set the video to fill the entire page */
+      video {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        z-index: -100;
+        transform: translate(-50%, -50%);
+        background-size: cover;
+      }
+      p{color:white}
+    </style>
+  </head>
+  <body>
+    <!-- Add the video element -->
+    <video autoplay loop muted>
+      <!--source src="https://media.istockphoto.com/id/862601644/video/cybercrime-and-secutrity-looped-animation.mp4?s=mp4-640x640-is&k=20&c=nY_roqkM7KjgUpjDqjA8jI0GWnnxkW_2jM-qLgYIEUQ=" type="video/mp4"-->
+      <!--source src="https://media.istockphoto.com/id/600202872/video/hacker-stealing-data-alert-text-on-screen-security-breach-system-under-attack.mp4?s=mp4-640x640-is&k=20&c=8iWcHoub6UAMekcSAi11qM4X8Vay9-SMppPma912BJE=" type="video/webm" -->
+      <p>Your browser does not support the video element.</p>
+    </video>
+</head>
+
+<body>
+ <div class="login">
+	<h1 style="color:blue;">Url detection</h1>
+     
+
+
+     
+    <form action="{{ url_for('predict')}}"method="post">
+        
+	
+        	
+<input type="text" name="long_url" placeholder="long_url" required="required" />
+		<br>
+		<br>
+<input type="text" name="having_@_symbol" placeholder="having_@_symbol" required="required" />
+                <br>
+<br>
+		<input type="text" name="redirection_//_symbol" placeholder="redirection_//_symbol" required="required" />
+		<br>
+<br>
+		<input type="text" name="prefix_suffix_seperation" placeholder="prefix_suffix_seperation" required="required" />
+		<br>
+<br>
+		<input type="text" name="sub_domains" placeholder="sub_domains" required="required" />
+<br>
+<br>
+		<input type="text" name="having_ip_address" placeholder="having_ip_address" required="required" />
+<br>		
+<br>
+<input type="text" name="shortening_service" placeholder="shortening_service" required="required" />
+	<br>	
+<br>
+<input type="text" name="https_token" placeholder="https_token" required="required" />
+		<br>
+<br>
+<input type="text" name="abnormal_url" placeholder="abnormal_url" required="required" />
+		<br>
+<br>
+<input type="text" name="web_traffic" placeholder="web_traffic" required="required" />
+               <br>
+<br>
+ <input type="text" name="domain_registration_length" placeholder="domain_registration_length" required="required" />
+              <br>  
+<br>
+<input type="text" name="age_of_domain" placeholder="age_of_domain" required="required" />
+               <br> 
+<br>
+<input type="text" name="dns_record" placeholder="dns_record" required="required" />
+                <br>
+		<br>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   <p>{{ prediction_text }}</p>
+   
+
+ </div>
+
+
+</body>
+</html>
